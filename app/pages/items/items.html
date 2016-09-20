@@ -1,0 +1,54 @@
+<ActionBar [title]="listName">
+  <ActionItem text="Share" (tap)="shareToggle()" android.systemIcon="ic_menu_share_holo_dark" ios.systemIcon="9" ios.position="right"></ActionItem>
+</ActionBar>
+
+<GridLayout rows="auto, *">
+
+  <GridLayout row="0" columns="*, auto" class="add-bar">
+    <item-input
+      hint="Create a new item"
+      [value]="item"
+      typeName="item"
+      (addOutput)="add($event)"
+    ></item-input>
+  </GridLayout>
+
+  <ListView *ngIf="listLoaded && itemList.length > 0" [items]="itemList" row="1" class="small-spacing" [class.visible]="listLoaded">
+    <template let-item="item" let-i="index">
+      <item
+        [item]="item"
+        isDoneable="true"
+        (deleteOutput)="delete($event)"
+        (doneOutput)="done($event)"
+      ></item>
+    </template>
+  </ListView>
+
+  <Label class="noitems-msg" row="1" *ngIf="listLoaded && itemList.length < 1" textWrap="true" text="You currently have no items in the list. Enter an item in the field above."></Label>
+
+  <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+</GridLayout>
+
+<AbsoluteLayout class="modal-mask" *ngIf="showShare" left="0" top="0"></AbsoluteLayout>
+
+<StackLayout *ngIf="showShare" class="modal-wrapper" orientation="vertical" verticalAlign="center">
+  <GridLayout rows="auto, *, auto">
+    <GridLayout row="0" columns="*, auto" rows="auto" class="modal-header">
+      <Label text="Share List" col="0" class="modal-title"></Label>
+      <Label text="X" (tap)="shareToggle()" col="1" class="modal-close"></Label>
+    </GridLayout>
+
+    <GridLayout row="1" columns="*" rows="*" class="modal-content">
+      <StackLayout orientation="vertical" verticalAlign="top">
+        <Label text="Enter an email address below to share this list with a friend." textWrap="true" class="helpLabel"></Label>
+        <TextField #shareTextField [(ngModel)]="email" keyboardType="email" autocorrect="false" autocapitalizationType="none" hint="Enter email..."></TextField>
+      </StackLayout>
+    </GridLayout>
+
+    <GridLayout row="2" columns="*, auto, auto" rows="auto" class="modal-footer">
+      <Label text="" col="0"></Label>
+      <Button text="Cancel" (tap)="shareToggle()" col="1"></Button>
+      <Button text="Share" (tap)="share()" col="2" class="primary-button"></Button>
+    </GridLayout>
+  </GridLayout>
+</StackLayout>

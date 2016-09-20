@@ -1,0 +1,1 @@
+{"version":3,"file":"list.js","sourceRoot":"","sources":["list.ts"],"names":[],"mappings":";AAAA;IACE,cAAmB,EAAU,EAAS,IAAY;QAA/B,OAAE,GAAF,EAAE,CAAQ;QAAS,SAAI,GAAJ,IAAI,CAAQ;IAAG,CAAC;IACxD,WAAC;AAAD,CAAC,AAFD,IAEC;AAFY,YAAI,OAEhB,CAAA","sourcesContent":["export class List {\n  constructor(public id: string, public name: string) {}\n}"]}

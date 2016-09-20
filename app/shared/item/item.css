@@ -1,0 +1,9 @@
+.item {
+    font-size: 16;
+}
+
+.done {
+    text-decoration: line-through;
+    color: #999;
+}
+

@@ -1,0 +1,89 @@
+ListView {
+  opacity: 0;
+}
+.visible {
+  animation-name: show;
+  animation-duration: 1s;
+}
+@keyframes show {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.share-bar TextField {
+  color: white;
+}
+
+.add-bar {
+  background-color: #CB1D00;
+  padding: 5 10;
+}
+
+.share-bar Image,
+.add-bar Image {
+  height: 15;
+  vertical-align: center;
+  margin-left: 10;
+  margin-right: 5;
+}
+.add-bar TextField {
+  color: white;
+}
+
+.modal-mask {
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-wrapper {
+  background-color: white;
+  margin: 30;
+}
+
+.modal-header {
+  background-color: black;
+  color: white;
+}
+
+.modal-title,
+.modal-close {
+  padding: 10;
+  font-size: 20;
+}
+
+.modal-title {}
+
+.modal-close {}
+
+.modal-content {
+  margin: 20;
+}
+
+.modal-footer {
+  margin-left: 20;
+  margin-right: 20;
+  margin-bottom: 20;
+}
+
+.helpLabel {
+  margin-bottom: 20;
+}
+
+Button {
+  height: 40;
+  margin-left: 10;
+}
+
+.primary-button {
+  background-color: #CB1D00;
+  color: white;
+}
+
+.button-add {
+  background-color: rgba(255,255,255,0.3);
+  font-size: 20;
+  padding: 10;
+}
+
+.noitems-msg {
+  margin: 20;
+}
