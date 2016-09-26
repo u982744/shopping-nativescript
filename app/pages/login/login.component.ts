@@ -24,8 +24,6 @@ export class LoginPage implements OnInit {
 
   constructor(private _router: Router, private _userService: UserService, private page: Page) {
     this.user = new User();
-    this.user.email = "berman.tim@gmail.com";
-    this.user.password = "Shiznit!";
   }
 
   ngOnInit() {
